@@ -36,8 +36,9 @@ class ListaCompras {
             return nome
         }
 
-        fun informarQuantidadeLegumeOutros(alimento: String) {
+        fun informarQuantidadeLegumeOutros(alimento: String): Int {
             //TODO:implementar lógica (3/3)
+            return 0
         }
 
     }
