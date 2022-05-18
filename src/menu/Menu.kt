@@ -7,6 +7,10 @@ import kotlin.system.exitProcess
 class Menu {
     companion object {
         private var listaAlimentos: HashMap<String, Number> = HashMap()
+        private var qntdVerdura = 0
+        private var qntdLegume = 0
+        private var qntdGrao = 0
+        private var qntdOutros = 0
 
 
         fun menu() {
@@ -23,6 +27,13 @@ class Menu {
                 throw IllegalArgumentException("Tipo de alimento inválido")
             }
 
+            when(alimento){
+                "verdura" -> qntdVerdura += 1
+                "grão", "grao" -> qntdGrao += 1
+                "legume" -> qntdLegume += 1
+                "outros" -> qntdOutros += 1
+            }
+
             when (alimento) {
                 "verdura", "grão", "grao" -> {
                     /*Não é para mexer aqui*/
@@ -36,8 +47,18 @@ class Menu {
                     //TODO: terminar de implementar lógica (1/3)
                 }
                 "ver lista" -> {
-                    //TODO: terminar de implementar lógica (2/3)
-                    /*listaAlimentos.forEach { alimento, quantidade ->  }*/
+                    println("--------------------------------------------------------------------")
+                    listaAlimentos.forEach { map ->
+                        println("${map.key} - ${map.value}kg")
+                    }
+
+                    println("\nA quantidade de alimentos do tipo verdura a ser comprada é: $qntdVerdura")
+                    println("A quantidade de alimentos do tipo grãos a ser comprada é: $qntdGrao")
+                    println("A quantidade de alimentos do tipo legume a ser comprada é: $qntdLegume")
+                    println("A quantidade de alimentos do tipo outros a ser comprada é: $qntdOutros")
+                    println("--------------------------------------------------------------------")
+
+                    menu()
                 }
                 "sair" -> {
                     println("Até breve!")
