@@ -1,5 +1,6 @@
 package menu
 
+import alimento.Alimento
 import listacompras.ListaCompras.Companion.informarNomeAlimento
 import listacompras.ListaCompras.Companion.informarQuantidadeLegumeOutros
 import listacompras.ListaCompras.Companion.informarQuantidadeVerduraGrao
@@ -13,8 +14,8 @@ class Menu {
         private var qntdGrao = 0
         private var qntdOutros = 0
 
-
         fun menu() {
+            println("--------------------------------------------------------------------")
             println("Digite o tipo de alimento que deseja incluir na lista")
             println("Verdura")
             println("Legume")
@@ -22,19 +23,25 @@ class Menu {
             println("Outros")
             println("Ver lista")
             println("Sair")
+            println("--------------------------------------------------------------------")
             val alimento = readln().lowercase()
 
             if ((alimento != "verdura") && (alimento != "legume") && (alimento != "grão") && (alimento != "grao") && (alimento != "outros") && (alimento != "ver lista") && (alimento != "sair")) {
-                throw IllegalArgumentException("Tipo de alimento inválido")
+                println("Tipo de alimento inválido")
+                menu()
             }
 
-            when(alimento){
+            when (alimento) {
                 "verdura" -> qntdVerdura += 1
                 "grão", "grao" -> qntdGrao += 1
                 "legume" -> qntdLegume += 1
                 "outros" -> qntdOutros += 1
             }
 
+            opcoes(alimento)
+        }
+
+        fun opcoes(alimento: String) {
             when (alimento) {
                 "verdura", "grão", "grao" -> {
                     /*Não é para mexer aqui*/
@@ -71,7 +78,5 @@ class Menu {
                 }
             }
         }
-
-
     }
 }
