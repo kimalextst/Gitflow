@@ -47,9 +47,24 @@ class ListaCompras {
         }
 
         fun informarQuantidadeLegumeOutros(alimento: String): Int {
-            //TODO:implementar lógica (3/3)
-            return 0
-        }
+            var quantidade = 0
+            try {
+                println("--------------------------------------------------------------------")
+                print("Informe a quantidade de $alimento em gramas: ")
+                val input = readln()
+                println("--------------------------------------------------------------------")
 
+                quantidade = input.toInt()
+                if (quantidade < 0) {
+                    println("Não é permitido números negativos, tente novamente")
+                    opcoes(alimento)
+                }
+
+            } catch (exception: Exception) {
+                println("É permitido somente números")
+                opcoes(alimento)
+            }
+            return quantidade
+        }
     }
 }

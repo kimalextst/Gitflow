@@ -1,6 +1,5 @@
 package menu
 
-import alimento.Alimento
 import listacompras.ListaCompras.Companion.informarNomeAlimento
 import listacompras.ListaCompras.Companion.informarQuantidadeLegumeOutros
 import listacompras.ListaCompras.Companion.informarQuantidadeVerduraGrao
@@ -61,7 +60,7 @@ class Menu {
                 "ver lista" -> {
                     println("--------------------------------------------------------------------")
                     listaAlimentos.forEach { map ->
-                        println("${map.key} - ${map.value}kg")
+                        println("${map.key} - ${map.value}g")
                     }
 
                     println("\nA quantidade de alimentos do tipo verdura a ser comprada é: $qntdVerdura")
@@ -73,7 +72,9 @@ class Menu {
                     menu()
                 }
                 "sair" -> {
+                    println("--------------------------------------------------------------------")
                     println("Até breve!")
+                    println("--------------------------------------------------------------------")
                     exitProcess(0)
                 }
             }
