@@ -1,8 +1,7 @@
 package menu
 
 import listacompras.ListaCompras.Companion.informarNomeAlimento
-import listacompras.ListaCompras.Companion.informarQuantidadeLegumeOutros
-import listacompras.ListaCompras.Companion.informarQuantidadeVerduraGrao
+import listacompras.ListaCompras.Companion.informarQuantidade
 import kotlin.system.exitProcess
 
 class Menu {
@@ -42,16 +41,9 @@ class Menu {
 
         fun opcoes(alimento: String) {
             when (alimento) {
-                "verdura", "grão", "grao" -> {
+                "verdura", "grão", "grao","legume", "outros" -> {
                     /*Não é para mexer aqui*/
-                    val quantidade = informarQuantidadeVerduraGrao(alimento)
-                    val nome = informarNomeAlimento(alimento)
-
-                    listaAlimentos[nome] = quantidade
-                    menu()
-                }
-                "legume", "outros" -> {
-                    val quantidade = informarQuantidadeLegumeOutros(alimento)
+                    val quantidade = informarQuantidade(alimento)
                     val nome = informarNomeAlimento(alimento)
 
                     listaAlimentos[nome] = quantidade

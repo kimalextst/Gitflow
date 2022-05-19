@@ -6,7 +6,7 @@ import menu.Menu.Companion.opcoes
 afinal é um sistema de lista de compras. Não confundir com o conceito de List do Kotlin*/
 class ListaCompras {
     companion object {
-        fun informarQuantidadeVerduraGrao(alimento: String): Int {
+        fun informarQuantidade(alimento: String): Int {
             var gramas = 0
             try {
                 println("--------------------------------------------------------------------")
@@ -44,27 +44,6 @@ class ListaCompras {
                 opcoes(alimento)
             }
             return nome
-        }
-
-        fun informarQuantidadeLegumeOutros(alimento: String): Int {
-            var quantidade = 0
-            try {
-                println("--------------------------------------------------------------------")
-                print("Informe a quantidade de $alimento em gramas: ")
-                val input = readln()
-                println("--------------------------------------------------------------------")
-
-                quantidade = input.toInt()
-                if (quantidade < 0) {
-                    println("Não é permitido números negativos, tente novamente")
-                    opcoes(alimento)
-                }
-
-            } catch (exception: Exception) {
-                println("É permitido somente números")
-                opcoes(alimento)
-            }
-            return quantidade
         }
     }
 }
